@@ -190,6 +190,3 @@ if (isset($_POST['sendmsgbtn'])) {
         header('location:reset_password.php?msgError=Password does not match..!!');
     }
  }
- 
- 
-?>
