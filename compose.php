@@ -15,7 +15,7 @@
                        
 
                           <div class="card-body col-md-8 justify-content-center">
-                                    <form action="controller.php" method="post" enctype="multipart/form-data">
+                                    <form action="../controller.php" method="post" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="col-md-4">
                                                     <label class="big mb-1">Send To</label>
