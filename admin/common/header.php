@@ -35,7 +35,7 @@ $q=$d->select("company_info","","");
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             
-                    <a class="navbar-brand" href="index.php"><img src="logo/logocegep.png"></a>
+                    <a class="navbar-brand" href="index.php"><img src="../logo/logocegep.png"></a>
                 
                     <button class="btn btn-link btn-bg order-1 order-lg-0" id="sidebarToggle" href="#" style="margin-left: 6%;"><i class="fas fa-bars"></i></button>
             
