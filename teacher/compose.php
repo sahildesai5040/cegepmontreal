@@ -8,7 +8,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">Compose</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item active">Compose</li>
                         </ol>
                        
