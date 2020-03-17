@@ -1,8 +1,8 @@
 <?php 
 session_start();
-include_once('dbconnect.php');
-include_once('lib/dao.php');
-include_once('lib/model.php');
+include_once('teacher/lib/dbconnect.php');
+include_once('teacher/lib/dao.php');
+include_once('teacher/lib/model.php');
 
 $d = new dao();
 $m = new model();
