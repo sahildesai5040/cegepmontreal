@@ -1,5 +1,7 @@
 <?php 
 
+echo "success";
+/*
 session_start();
 include_once('lib/dbconnect.php');
 include_once('lib/dao.php');
@@ -191,6 +193,6 @@ if (isset($_POST['sendmsgbtn'])) {
         header('location:reset_password.php?msgError=Password does not match..!!');
     }
  }
- 
+ */
  
 ?>
