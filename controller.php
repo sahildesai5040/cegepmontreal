@@ -1,8 +1,8 @@
 <?php 
 session_start();
-include_once('teacher/lib/dbconnect.php');
-include_once('teacher/lib/dao.php');
-include_once('teacher/lib/model.php');
+include_once('lib/dbconnect.php');
+include_once('lib/dao.php');
+include_once('lib/model.php');
 
 $d = new dao();
 $m = new model();
@@ -35,14 +35,14 @@ if (isset($_POST['usercheck'])) {
  if (isset($_POST['adduserbtn'])) {
  	extract($_POST);
 
-
+	
 	$m->set_data('username',$firstname ." " . $lastname);
  	$m->set_data('email',$email);
  	$m->set_data('password',$password);
  	$m->set_data('course_id',$course_id);
  	
  	$m->set_data('flag','0');
- 	
+ 	$email1=$email;
 
  	$a =array(
  		
@@ -57,7 +57,41 @@ if (isset($_POST['usercheck'])) {
 
  	$q=$d->insert("users",$a);
  	if($q>0) {
- 		header('location:login.php');
+
+		$q1=$d->select("users","email='$email1'","");
+
+ 		$data1=mysqli_fetch_array($q1);
+		extract($data1);
+
+			$q2=$d->select("subject_details","course_id='$course_id'","");
+
+			while ($data2=mysqli_fetch_array($q2)) 
+			{
+                             extract($data2);
+
+
+				$m->set_data('user_id',$user_id);
+				$m->set_data('course_id',$course_id);
+				$m->set_data('subject_id',$subject_id);
+ 				$m->set_data('grade','0');
+ 				$m->set_data('absents','0');
+
+ 	
+
+ 				$a =array(
+ 					'user_id'=>$m->get_data('user_id'),
+					'course_id'=>$m->get_data('course_id'),
+					'subject_id'=>$m->get_data('subject_id'),
+ 					'grade'=>$m->get_data('grade'),
+ 					'absents'=>$m->get_data('absents'),
+
+ 				) ;
+
+ 				$q=$d->insert("student_details",$a);
+ 			}	
+ 		
+
+ 			header('location:login.php');
 	}
 	else {
 		echo "Error";
@@ -89,12 +123,12 @@ if (isset($_POST['sendmsgbtn'])) {
  	if($q>0) 
  	{
  		$q1=$d->select("file_details","file_name='$file_name'","");
-
+		
  		$data1=mysqli_fetch_array($q1);
  		extract($data1);
+		$user_id=$_SESSION['user_id'];
 
-
- 			$m->set_data('user_id_from','39');
+ 			$m->set_data('user_id_from',$user_id);
 			$m->set_data('user_id_to',$user_id_to);
 			$m->set_data('subject',$subject);
 		 	$m->set_data('date_time',date('Y-m-d H:i:s'));
