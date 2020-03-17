@@ -217,7 +217,7 @@ if (isset($_POST['sendmsgbtn'])) {
 		
  		$data1=mysqli_fetch_array($q1);
  		extract($data1);
-		$user_id=$_SESSION['user_id'];
+		$user_id=$_SESSION['teacher_id'];
 
  			$m->set_data('user_id_from',$user_id);
 			$m->set_data('user_id_to',$user_id_to);
